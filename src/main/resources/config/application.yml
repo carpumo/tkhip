@@ -141,9 +141,9 @@ jhipster:
   #     allow-credentials: true
   #     max-age: 1800
   mail:
-    from: tkhip@localhost
+    from: carpumo@gmail.com
   swagger:
-    default-include-pattern: /api/.*
+    default-include-pattern: /api/transactions
     title: tkhip API
     description: tkhip API documentation
     version: 0.0.1

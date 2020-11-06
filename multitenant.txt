@@ -1,0 +1,20 @@
+
+1. Añadir al Domain User
+
+@FilterDef(name = "EMPRESA_FILTER", parameters = {@ParamDef(name = "empresaId", type = "long")})
+@Filter(name = "EMPRESA_FILTER", condition = "empresa_id = :empresaId")
+
+    1. b - Y añadimos la relacion:
+
+@JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER)
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Empresa empresa;
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }

@@ -14,8 +14,10 @@ import io.github.jhipster.security.RandomUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -119,6 +121,7 @@ public class UserService {
         Set<Authority> authorities = new HashSet<>();
         authorityRepository.findById(AuthoritiesConstants.USER).ifPresent(authorities::add);
         newUser.setAuthorities(authorities);
+        newUser.setEmpresa(userDTO.getEmpresa());
         userRepository.save(newUser);
         this.clearUserCaches(newUser);
         log.debug("Created Information for User: {}", newUser);
@@ -256,17 +259,46 @@ public class UserService {
 
     @Transactional(readOnly = true)
     public Page<UserDTO> getAllManagedUsers(Pageable pageable) {
-        return userRepository.findAllByLoginNot(pageable, Constants.ANONYMOUS_USER).map(UserDTO::new);
+        Optional<String> login = SecurityUtils.getCurrentUserLogin();
+
+        if(login.isPresent()) {
+
+            User loggedInUser = userRepository.findOneByLogin(login.get()).get();
+
+            if (loggedInUser.getEmpresa() != null) {
+                return userRepository.findAllByLoginNotAndEmpresa(pageable, Constants.ANONYMOUS_USER, loggedInUser.getEmpresa()).map(UserDTO::new);
+            }
+        }
+                return userRepository.findAllByLoginNot(pageable, Constants.ANONYMOUS_USER).map(UserDTO::new);
+
+
     }
+
+
 
     @Transactional(readOnly = true)
     public Optional<User> getUserWithAuthoritiesByLogin(String login) {
         return userRepository.findOneWithAuthoritiesByLogin(login);
     }
 
-    @Transactional(readOnly = true)
+    @Transactional( readOnly = true)
     public Optional<User> getUserWithAuthorities() {
-        return SecurityUtils.getCurrentUserLogin().flatMap(userRepository::findOneWithAuthoritiesByLogin);
+
+        Optional<User> usuario;
+        log.debug("Pasa por aqui: getUserWithAuthorities sin ID");
+        log.debug("SecurityUtils.getCurrentUserLogin(): " + SecurityUtils.getCurrentUserLogin());
+
+        boolean isEqual = SecurityUtils.getCurrentUserLogin().equals(Optional.of("admin"));
+           if ( isEqual ) {
+               usuario = userRepository.findOneWithAuthoritiesByLogin(SecurityUtils.getCurrentUserLogin().get());
+           } else {
+               usuario = userRepository.findOneCustomByLogin(SecurityUtils.getCurrentUserLogin().get());
+           }
+
+
+        log.debug("+++++++++++++Valor devuelto : " + usuario.toString());
+        return usuario;
+        //return SecurityUtils.getCurrentUserLogin().flatMap(userRepository::findOneWithAuthoritiesWithEmpresaByLogin);
     }
 
     /**

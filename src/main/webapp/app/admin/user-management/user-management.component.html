@@ -24,6 +24,7 @@
                     <th scope="col" jhiSortBy="createdDate"><span jhiTranslate="userManagement.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col" jhiSortBy="lastModifiedBy"><span jhiTranslate="userManagement.lastModifiedBy">Last Modified By</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col" jhiSortBy="lastModifiedDate"><span jhiTranslate="userManagement.lastModifiedDate">Last Modified Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="empresa"><span jhiTranslate="userManagement.email">Login</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -47,6 +48,8 @@
                     <td>{{ user.createdDate | date:'dd/MM/yy HH:mm' }}</td>
                     <td>{{ user.lastModifiedBy }}</td>
                     <td>{{ user.lastModifiedDate | date:'dd/MM/yy HH:mm' }}</td>
+                    <td>{{ user.empresa?.nombre ? user.empresa?.nombre : '' }}</td>
+
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

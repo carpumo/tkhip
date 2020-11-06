@@ -3,6 +3,7 @@ package com.cpm.tkhip.service.dto;
 import com.cpm.tkhip.config.Constants;
 
 import com.cpm.tkhip.domain.Authority;
+import com.cpm.tkhip.domain.Empresa;
 import com.cpm.tkhip.domain.User;
 
 import javax.validation.constraints.*;
@@ -50,6 +51,8 @@ public class UserDTO {
 
     private Set<String> authorities;
 
+    private Empresa empresa;
+
     public UserDTO() {
         // Empty constructor needed for Jackson.
     }
@@ -70,6 +73,15 @@ public class UserDTO {
         this.authorities = user.getAuthorities().stream()
             .map(Authority::getName)
             .collect(Collectors.toSet());
+        this.empresa = user.getEmpresa();
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
     }
 
     public Long getId() {
@@ -192,6 +204,7 @@ public class UserDTO {
             ", lastModifiedBy='" + lastModifiedBy + '\'' +
             ", lastModifiedDate=" + lastModifiedDate +
             ", authorities=" + authorities +
+            ", empresa=" + empresa + '\'' +
             "}";
     }
 }

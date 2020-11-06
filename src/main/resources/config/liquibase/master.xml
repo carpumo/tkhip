@@ -14,7 +14,68 @@
     <property name="uuidType" value="uuid" dbms="h2, postgresql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026171416_added_entity_Empresa.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026171516_added_entity_EntidadVenta.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026171616_added_entity_Pda.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026171716_added_entity_TicketsBlock.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026171816_added_entity_CanalVenta.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026171916_added_entity_TipoPreventa.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026172016_added_entity_TipoEvento.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026172116_added_entity_Ubicacion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026172216_added_entity_Estado.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026172316_added_entity_GestionBanner.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026172416_added_entity_DispVendGrupo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026172516_added_entity_DispVendUser.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026172616_added_entity_Brand.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026172716_added_entity_Cliente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026172816_added_entity_Country.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026172916_added_entity_Payment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026173016_added_entity_Transaction.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026173116_added_entity_Evento.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026173216_added_entity_EventoT.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026173316_added_entity_EventoApi.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026173416_added_entity_TicketsApi.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026173516_added_entity_PromoCode.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026173616_added_entity_TicketDesign.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026173716_added_entity_TipoTicket.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026173816_added_entity_TipoTicketT.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026173916_added_entity_TipoTicketTax.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026174016_added_entity_Pasarela.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026174116_added_entity_LanguageCp.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026174216_added_entity_DailyTicket.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026174316_added_entity_Ticket.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026174416_added_entity_Servicio.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026174516_added_entity_TipoIva.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026174616_added_entity_ServicioT.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026174716_added_entity_Zona.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026174816_added_entity_Invoice.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026174916_added_entity_InvoiceLine.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026175016_added_entity_CondicionesVenta.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026175116_added_entity_CondicionesVentaT.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20201026171416_added_entity_constraints_Empresa.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026171516_added_entity_constraints_EntidadVenta.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026171616_added_entity_constraints_Pda.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026172416_added_entity_constraints_DispVendGrupo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026172516_added_entity_constraints_DispVendUser.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026172616_added_entity_constraints_Brand.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026172716_added_entity_constraints_Cliente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026172916_added_entity_constraints_Payment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026173016_added_entity_constraints_Transaction.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026173116_added_entity_constraints_Evento.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026173216_added_entity_constraints_EventoT.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026173516_added_entity_constraints_PromoCode.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026173716_added_entity_constraints_TipoTicket.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026173816_added_entity_constraints_TipoTicketT.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026173916_added_entity_constraints_TipoTicketTax.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026174016_added_entity_constraints_Pasarela.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026174316_added_entity_constraints_Ticket.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026174416_added_entity_constraints_Servicio.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026174616_added_entity_constraints_ServicioT.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026174816_added_entity_constraints_Invoice.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026174916_added_entity_constraints_InvoiceLine.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026175016_added_entity_constraints_CondicionesVenta.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201026175116_added_entity_constraints_CondicionesVentaT.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>
